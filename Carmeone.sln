@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Common", "Carmeone.Common\Carmeone.Common.csproj", "{8278FAB1-5731-4E79-8018-7F372D9D02A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Db", "Carmeone.Db\Carmeone.Db.csproj", "{F037BEFF-71B5-404D-9F4A-DC011C845365}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8278FAB1-5731-4E79-8018-7F372D9D02A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8278FAB1-5731-4E79-8018-7F372D9D02A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8278FAB1-5731-4E79-8018-7F372D9D02A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8278FAB1-5731-4E79-8018-7F372D9D02A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F037BEFF-71B5-404D-9F4A-DC011C845365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F037BEFF-71B5-404D-9F4A-DC011C845365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F037BEFF-71B5-404D-9F4A-DC011C845365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F037BEFF-71B5-404D-9F4A-DC011C845365}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
