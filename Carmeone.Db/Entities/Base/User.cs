@@ -1,9 +1,6 @@
-namespace Carmeone.Db.Entities;
+namespace Carmeone.Db.Entities.Base;
 
-/// <summary>
-/// Пользователь
-/// </summary>
-public class User
+public abstract class User
 {
     /// <summary>
     /// Идентификатор пользователя
@@ -13,18 +10,6 @@ public class User
     /// Аватар (картинка)
     /// </summary>
     public string Avatar { get; set; }
-    /// <summary>
-    /// Фамилия
-    /// </summary>
-    public string FirstName { get; set; }
-    /// <summary>
-    /// Имя
-    /// </summary>
-    public string LastName { get; set; }
-    /// <summary>
-    /// Отчество
-    /// </summary>
-    public string MiddleName { get; set; }
     /// <summary>
     /// Телефон
     /// </summary>
@@ -38,7 +23,7 @@ public class User
     /// </summary>
     public string Description { get; set; }
     /// <summary>
-    /// Дата рождения
+    /// Дата регистрации
     /// </summary>
-    public DateTime DateBirth { get; set; }
+    public DateTime RegistrationDate { get; set; }
 }

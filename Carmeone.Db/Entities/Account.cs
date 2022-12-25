@@ -1,3 +1,5 @@
+using Carmeone.Db.Entities.Base;
+
 namespace Carmeone.Db.Entities;
 
 /// <summary>
@@ -6,9 +8,9 @@ namespace Carmeone.Db.Entities;
 public class Account
 {
     /// <summary>
-    /// Идентификатор пользователя
+    /// Идентификатор аккаунта
     /// </summary>
-    public string UserId { get; set; }
+    public string Id { get; set; }
     /// <summary>
     /// Логин пользователя
     /// </summary>

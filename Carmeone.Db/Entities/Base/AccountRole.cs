@@ -1,4 +1,4 @@
-namespace Carmeone.Db.Entities;
+namespace Carmeone.Db.Entities.Base;
 
 /// <summary>
 /// Роль аккаунта пользователя
@@ -6,9 +6,13 @@ namespace Carmeone.Db.Entities;
 public enum AccountRole
 {
     /// <summary>
-    /// Пользователя
+    /// Простой пользователь
     /// </summary>
-    User = 0,
+    Individual = 0,
+    /// <summary>
+    /// Компания
+    /// </summary>
+    Company = 1,
     /// <summary>
     /// Администратор
     /// </summary>
