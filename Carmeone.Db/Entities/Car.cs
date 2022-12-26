@@ -24,9 +24,21 @@ public class Car: Vehicle
     /// </summary>
     public int SeatsCount { get; set; }
     /// <summary>
+    /// Количество владельцев
+    /// </summary>
+    public int OwnersCount { get; set; }
+    /// <summary>
+    /// Количество дверей
+    /// </summary>
+    public int DorsCount { get; set; }
+    /// <summary>
     /// Год выпуска автомобиля
     /// </summary>
     public int YearManufacture { get; set; }
+    /// <summary>
+    /// Серийный номер
+    /// </summary>
+    public string SerialNumber { get; set; }
     /// <summary>
     /// Пробег автомобиля
     /// </summary>
@@ -36,7 +48,7 @@ public class Car: Vehicle
     /// </summary>
     public decimal Cost { get; set; }
     /// <summary>
-    /// Мощьность автомобиля (лошадиных сил)
+    /// Мощьность автомобиля кВт
     /// </summary>
     public int Power { get; set; }
     /// <summary>
@@ -55,4 +67,12 @@ public class Car: Vehicle
     /// Тип коробки передач
     /// </summary>
     public TransmissionType TransmissionType { get; set; }
+    /// <summary>
+    /// Объем двигателя
+    /// </summary>
+    public int EngineCapacity { get; set; }
+    /// <summary>
+    /// Тип салона автомобиля
+    /// </summary>
+    public CarInteriorType CarInteriorType { get; set; }
 }

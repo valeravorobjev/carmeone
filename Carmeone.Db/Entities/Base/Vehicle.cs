@@ -37,5 +37,8 @@ public abstract class Vehicle
     /// Автоматически возобнавлять объявление
     /// </summary>
     public bool IsAutoRenew { get; set; }
-    
+    /// <summary>
+    /// Состояние транспортного средства
+    /// </summary>
+    public VehicleStateType VehicleStateType { get; set; }
 }
