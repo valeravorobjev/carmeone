@@ -12,13 +12,13 @@ public class Brand
     /// <summary>
     /// Название
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
     /// <summary>
     /// Фотография
     /// </summary>
-    public string Photo { get; set; }
+    public string Photo { get; set; } = null!;
     /// <summary>
     /// Описание
     /// </summary>
-    public string Description { get; set; }
+    public string Description { get; set; } = null!;
 }

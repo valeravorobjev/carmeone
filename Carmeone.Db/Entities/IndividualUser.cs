@@ -10,15 +10,15 @@ public class IndividualUser: User
     /// <summary>
     /// Фамилия
     /// </summary>
-    public string FirstName { get; set; }
+    public string FirstName { get; set; } = null!;
     /// <summary>
     /// Имя
     /// </summary>
-    public string LastName { get; set; }
+    public string LastName { get; set; } = null!;
     /// <summary>
     /// Отчество
     /// </summary>
-    public string MiddleName { get; set; }
+    public string MiddleName { get; set; } = null!;
     /// <summary>
     /// Дата рождения
     /// </summary>

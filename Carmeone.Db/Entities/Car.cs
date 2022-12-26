@@ -38,7 +38,7 @@ public class Car: Vehicle
     /// <summary>
     /// Серийный номер
     /// </summary>
-    public string SerialNumber { get; set; }
+    public string SerialNumber { get; set; } = null!;
     /// <summary>
     /// Пробег автомобиля
     /// </summary>
