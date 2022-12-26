@@ -8,57 +8,57 @@ public enum ColorType
     /// <summary>
     /// Бежевый
     /// </summary>
-    Beige = 0,
+    Beige,
     /// <summary>
     /// Белый
     /// </summary>
-    White = 1,
+    White,
     /// <summary>
     /// Черный
     /// </summary>
-    Black = 2,
+    Black,
     /// <summary>
     /// Желтый
     /// </summary>
-    Yellow = 3,
+    Yellow,
     /// <summary>
     /// Зеленый
     /// </summary>
-    Green = 4,
+    Green,
     /// <summary>
     /// Золотой
     /// </summary>
-    Golden = 5,
+    Golden,
     /// <summary>
     /// Коричневый
     /// </summary>
-    Brown = 6,
+    Brown,
     /// <summary>
     /// Красный
     /// </summary>
-    Red = 7,
+    Red,
     /// <summary>
     /// Оранжевый
     /// </summary>
-    Orange = 8,
+    Orange,
     /// <summary>
     /// Серебрисный
     /// </summary>
-    Silver = 9,
+    Silver,
     /// <summary>
     /// Пурпурный
     /// </summary>
-    Purple = 10,
+    Purple,
     /// <summary>
     /// Серый
     /// </summary>
-    Gray = 11,
+    Gray,
     /// <summary>
     /// Синий
     /// </summary>
-    Blue = 12,
+    Blue,
     /// <summary>
     /// Другое
     /// </summary>
-    Other = 13,
+    Other,
 }

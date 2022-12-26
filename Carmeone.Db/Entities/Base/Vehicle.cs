@@ -49,30 +49,8 @@ public abstract class Vehicle
     /// Класс экологической безопасности
     /// </summary>
     public EnvironmentalSafetyType EnvironmentalSafetyType { get; set; }
-}
-
-/// <summary>
-/// Эфективность выбрасов CO
-/// </summary>
-public enum EfficiencyClass
-{
     /// <summary>
-    /// A+++
+    /// Эфективность выбросов СО
     /// </summary>
-    Appp,
-    /// <summary>
-    /// A++
-    /// </summary>
-    App,
-    /// <summary>
-    /// A+
-    /// </summary>
-    Ap,
-    A,
-    B,
-    C,
-    D,
-    E,
-    F,
-    G
+    public EfficiencyClassType EfficiencyClass { get; set; }
 }

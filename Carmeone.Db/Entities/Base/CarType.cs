@@ -8,29 +8,29 @@ public enum CarType
     /// <summary>
     /// Внедорожник
     /// </summary>
-    Offroad = 0,
+    Offroad,
     /// <summary>
     /// Седан
     /// </summary>
-    Sedan = 1,
+    Sedan,
     /// <summary>
     /// Кабриолет, родстер
     /// </summary>
-    Convertible = 2,
+    Convertible,
     /// <summary>
     /// Спортивный автомобиль
     /// </summary>
-    Sport = 3,
+    Sport,
     /// <summary>
     /// Малолитражный автомобиль
     /// </summary>
-    Subcompact = 4,
+    Subcompact,
     /// <summary>
     /// Автомобиль - универсал
     /// </summary>
-    Universal = 5,
+    Universal,
     /// <summary>
     /// Минивен
     /// </summary>
-    Minivan = 6,
+    Minivan,
 }

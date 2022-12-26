@@ -8,21 +8,21 @@ public enum EngineType
     /// <summary>
     /// Бензиновый
     /// </summary>
-    Petrol = 0,
+    Petrol,
     /// <summary>
     /// Дизельный
     /// </summary>
-    Diesel = 1,
+    Diesel,
     /// <summary>
     /// Электрический
     /// </summary>
-    Electric = 2,
+    Electric,
     /// <summary>
     /// Гибрид
     /// </summary>
-    Hibrid = 3,
+    Hibrid,
     /// <summary>
     /// На газу
     /// </summary>
-    Gas = 4
+    Gas
 }

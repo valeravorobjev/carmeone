@@ -8,35 +8,35 @@ public enum VehicleType
     /// <summary>
     /// Легковой автомобиль
     /// </summary>
-    Car = 0,
+    Car,
     /// <summary>
     /// Мотоцикл
     /// </summary>
-    Moto = 1,
+    Moto,
     /// <summary>
     /// Водное транспортное средство (лодка, катер, яхта и т.д.)
     /// </summary>
-    Boat = 2,
+    Boat,
     /// <summary>
     /// Автобус
     /// </summary>
-    Bus = 3,
+    Bus,
     /// <summary>
     /// Грузовик
     /// </summary>
-    Truck = 4,
+    Truck,
     /// <summary>
     /// Автопогрузчик
     /// </summary>
-    ForkLiftTruck = 5,
+    ForkLiftTruck,
     /// <summary>
     /// Сельхозтехника
     /// </summary>
-    AgriculturalMachinery = 6,
+    AgriculturalMachinery,
     /// <summary>
     /// Строительная техника
     /// </summary>
-    ConstructionEquipment = 7,
+    ConstructionEquipment,
     /// <summary>
     /// Автофургон
     /// </summary>

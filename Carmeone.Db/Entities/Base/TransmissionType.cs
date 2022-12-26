@@ -8,13 +8,13 @@ public enum TransmissionType
     /// <summary>
     /// Ручная коробка
     /// </summary>
-    Manual = 0,
+    Manual,
     /// <summary>
     /// Автоматическая
     /// </summary>
-    At = 1,
+    At,
     /// <summary>
     /// Вариатор
     /// </summary>
-    Cvt = 2
+    Cvt
 }

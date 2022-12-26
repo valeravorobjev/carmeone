@@ -8,13 +8,13 @@ public enum AccountRole
     /// <summary>
     /// Простой пользователь
     /// </summary>
-    Individual = 0,
+    Individual,
     /// <summary>
     /// Компания
     /// </summary>
-    Company = 1,
+    Company,
     /// <summary>
     /// Администратор
     /// </summary>
-    Administrator = 1
+    Administrator
 }

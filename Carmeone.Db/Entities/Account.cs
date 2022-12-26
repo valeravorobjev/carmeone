@@ -10,23 +10,28 @@ public class Account
     /// <summary>
     /// Идентификатор аккаунта
     /// </summary>
-    public string Id { get; set; }
+    public string Id { get; set; } = null!;
+
     /// <summary>
     /// Логин пользователя
     /// </summary>
-    public string Login { get; set; }
+    public string Login { get; set; } = null!;
+
     /// <summary>
     /// Пароль (зашифрован)
     /// </summary>
-    public string Password { get; set; }
+    public string Password { get; set; } = null!;
+
     /// <summary>
     /// Соль, первичная. К этой соли подмешивается специальный код.
     /// </summary>
     public int Salt { get; set; }
+
     /// <summary>
     /// Почтовый адрес
     /// </summary>
-    public string Email { get; set; }
+    public string Email { get; set; } = null!;
+
     /// <summary>
     /// Роль аккаунта пользователя
     /// </summary>
