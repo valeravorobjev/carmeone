@@ -9,18 +9,22 @@ public enum EngineType
     /// Бензиновый
     /// </summary>
     Petrol,
+
     /// <summary>
     /// Дизельный
     /// </summary>
     Diesel,
+
     /// <summary>
     /// Электрический
     /// </summary>
     Electric,
+
     /// <summary>
     /// Гибрид
     /// </summary>
     Hibrid,
+
     /// <summary>
     /// На газу
     /// </summary>

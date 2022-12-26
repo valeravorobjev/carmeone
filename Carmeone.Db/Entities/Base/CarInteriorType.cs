@@ -6,22 +6,27 @@ public enum CarInteriorType
     /// Кожанный салон
     /// </summary>
     Leather,
+
     /// <summary>
     /// Алькантара
     /// </summary>
     Alcantara,
+
     /// <summary>
     /// Частично кожанный
     /// </summary>
     LeatherPart,
+
     /// <summary>
     /// Велюр
     /// </summary>
     Velour,
+
     /// <summary>
     /// Обивка
     /// </summary>
     Upholstery,
+
     /// <summary>
     /// Другое
     /// </summary>

@@ -9,10 +9,12 @@ public enum AccountRole
     /// Простой пользователь
     /// </summary>
     Individual,
+
     /// <summary>
     /// Компания
     /// </summary>
     Company,
+
     /// <summary>
     /// Администратор
     /// </summary>

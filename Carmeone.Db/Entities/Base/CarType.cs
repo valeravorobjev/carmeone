@@ -9,26 +9,32 @@ public enum CarType
     /// Внедорожник
     /// </summary>
     Offroad,
+
     /// <summary>
     /// Седан
     /// </summary>
     Sedan,
+
     /// <summary>
     /// Кабриолет, родстер
     /// </summary>
     Convertible,
+
     /// <summary>
     /// Спортивный автомобиль
     /// </summary>
     Sport,
+
     /// <summary>
     /// Малолитражный автомобиль
     /// </summary>
     Subcompact,
+
     /// <summary>
     /// Автомобиль - универсал
     /// </summary>
     Universal,
+
     /// <summary>
     /// Минивен
     /// </summary>

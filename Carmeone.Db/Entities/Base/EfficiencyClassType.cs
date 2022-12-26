@@ -9,38 +9,47 @@ public enum EfficiencyClassType
     /// A+++
     /// </summary>
     Appp,
+
     /// <summary>
     /// A++
     /// </summary>
     App,
+
     /// <summary>
     /// A+
     /// </summary>
     Ap,
+
     /// <summary>
     /// А
     /// </summary>
     A,
+
     /// <summary>
     /// B
     /// </summary>
     B,
+
     /// <summary>
     /// C
     /// </summary>
     C,
+
     /// <summary>
     /// D
     /// </summary>
     D,
+
     /// <summary>
     /// E
     /// </summary>
     E,
+
     /// <summary>
     /// F
     /// </summary>
     F,
+
     /// <summary>
     /// G
     /// </summary>
