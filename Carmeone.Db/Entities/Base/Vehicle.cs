@@ -41,4 +41,38 @@ public abstract class Vehicle
     /// Состояние транспортного средства
     /// </summary>
     public VehicleStateType VehicleStateType { get; set; }
+    /// <summary>
+    /// Расход топлива на 100 км
+    /// </summary>
+    public int FuelConsumption { get; set; }
+    /// <summary>
+    /// Класс экологической безопасности
+    /// </summary>
+    public EnvironmentalSafetyType EnvironmentalSafetyType { get; set; }
+}
+
+/// <summary>
+/// Эфективность выбрасов CO
+/// </summary>
+public enum EfficiencyClass
+{
+    /// <summary>
+    /// A+++
+    /// </summary>
+    Appp,
+    /// <summary>
+    /// A++
+    /// </summary>
+    App,
+    /// <summary>
+    /// A+
+    /// </summary>
+    Ap,
+    A,
+    B,
+    C,
+    D,
+    E,
+    F,
+    G
 }

@@ -19,6 +19,10 @@ public enum CarInteriorType
     /// </summary>
     Velour,
     /// <summary>
+    /// Обивка
+    /// </summary>
+    Upholstery,
+    /// <summary>
     /// Другое
     /// </summary>
     Other
