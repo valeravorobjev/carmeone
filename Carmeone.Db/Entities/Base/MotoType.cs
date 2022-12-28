@@ -6,6 +6,11 @@ namespace Carmeone.Db.Entities.Base;
 public enum MotoType
 {
     /// <summary>
+    /// Прочие
+    /// </summary>
+    Other,
+    
+    /// <summary>
     /// Чепер
     /// </summary>
     Chopper,
