@@ -16,11 +16,6 @@ public enum VehicleType
     Moto,
 
     /// <summary>
-    /// Водное транспортное средство (лодка, катер, яхта и т.д.)
-    /// </summary>
-    Boat,
-
-    /// <summary>
     /// Автобус
     /// </summary>
     Bus,

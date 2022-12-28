@@ -1,4 +1,6 @@
-namespace Carmeone.Db.Entities.Base;
+using Carmeone.Db.Entities.Base;
+
+namespace Carmeone.Db.Entities;
 
 /// <summary>
 /// Транспортное средство
@@ -19,6 +21,71 @@ public abstract class Vehicle
     /// Название
     /// </summary>
     public string Name { get; set; } = null!;
+    
+    /// <summary>
+    /// Новый или подержанный автомобиль
+    /// </summary>
+    public bool IsNew { get; set; }
+
+    /// <summary>
+    /// Идентификатор модели 
+    /// </summary>
+    public uint ModelId { get; set; }
+    
+    /// <summary>
+    /// Количество владельцев
+    /// </summary>
+    public int OwnersCount { get; set; }
+    
+    /// <summary>
+    /// Год выпуска
+    /// </summary>
+    public int YearManufacture { get; set; }
+
+    /// <summary>
+    /// Серийный номер
+    /// </summary>
+    public string SerialNumber { get; set; } = null!;
+
+    /// <summary>
+    /// Пробег
+    /// </summary>
+    public int Mileage { get; set; }
+
+    /// <summary>
+    /// Стоимость
+    /// </summary>
+    public decimal Cost { get; set; }
+    
+    /// <summary>
+    /// Мощьность кВт
+    /// </summary>
+    public int Power { get; set; }
+
+    /// <summary>
+    /// Цвет
+    /// </summary>
+    public ColorType ColorType { get; set; }
+
+    /// <summary>
+    /// Цвет
+    /// </summary>
+    public bool IsMetalic { get; set; }
+
+    /// <summary>
+    /// Тип двигателя
+    /// </summary>
+    public EngineType EngineType { get; set; }
+
+    /// <summary>
+    /// Тип коробки передач
+    /// </summary>
+    public TransmissionType TransmissionType { get; set; }
+    
+    /// <summary>
+    /// Объем двигателя
+    /// </summary>
+    public int EngineCapacity { get; set; }
 
     /// <summary>
     /// Фотографии
