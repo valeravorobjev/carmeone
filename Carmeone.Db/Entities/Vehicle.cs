@@ -10,7 +10,7 @@ public abstract class Vehicle
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string Id { get; set; } = null!;
+    public string VehicleId { get; set; } = null!;
     
     /// <summary>
     /// Тип транспортного средства
@@ -136,4 +136,17 @@ public abstract class Vehicle
     /// Цель размещения транспортного средства на площадке
     /// </summary>
     public TargetType TargetType { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей автомобилей
+    /// </summary>
+    public ICollection<Car> Cars { get; set; }
+    /// <summary>
+    /// Связь с таблицей мотоциклов
+    /// </summary>
+    public ICollection<Moto> Motos { get; set; }
+    /// <summary>
+    /// Связь с таблицей автобусов
+    /// </summary>
+    public ICollection<Bus> Buses { get; set; }
 }

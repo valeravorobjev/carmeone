@@ -10,10 +10,15 @@ public class Bus
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string Id { get; set; } = null!;
+    public string BusId { get; set; } = null!;
     
     /// <summary>
     /// Тип автобуса
     /// </summary>
     public BusType BusType { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей транспортного средства
+    /// </summary>
+    public Vehicle Vehicle { get; set; }
 }

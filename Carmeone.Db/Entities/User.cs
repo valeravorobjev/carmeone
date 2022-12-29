@@ -1,11 +1,14 @@
-namespace Carmeone.Db.Entities.Base;
+namespace Carmeone.Db.Entities;
 
+/// <summary>
+/// Пользователь
+/// </summary>
 public abstract class User
 {
     /// <summary>
     /// Идентификатор пользователя
     /// </summary>
-    public string Id { get; set; } = null!;
+    public string UserId { get; set; } = null!;
 
     /// <summary>
     /// Аватар (картинка)
@@ -31,4 +34,9 @@ public abstract class User
     /// Дата регистрации
     /// </summary>
     public DateTime RegistrationDate { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей Account
+    /// </summary>
+    public Account Account { get; set; }
 }

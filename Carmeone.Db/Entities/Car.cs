@@ -10,7 +10,7 @@ public class Car
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string Id { get; set; } = null!;
+    public string CarId { get; set; } = null!;
     
     /// <summary>
     /// Тип транспортного средства
@@ -31,4 +31,9 @@ public class Car
     /// Тип салона автомобиля
     /// </summary>
     public CarInteriorType CarInteriorType { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей транспортного средства
+    /// </summary>
+    public Vehicle Vehicle { get; set; }
 }

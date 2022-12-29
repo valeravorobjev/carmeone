@@ -7,10 +7,15 @@ public class Moto
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string Id { get; set; } = null!;
+    public string MotoId { get; set; } = null!;
     
     /// <summary>
     /// Тип мотоцикла
     /// </summary>
     public MotoType MotoType { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей транспортного средства
+    /// </summary>
+    public Vehicle Vehicle { get; set; }
 }

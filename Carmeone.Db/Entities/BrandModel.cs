@@ -3,16 +3,12 @@ namespace Carmeone.Db.Entities;
 /// <summary>
 /// Модель транспортного средства
 /// </summary>
-public class Model
+public class BrandModel
 {
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public uint Id { get; set; }
-    /// <summary>
-    /// Идентификатор бренда
-    /// </summary>
-    public uint BrandId { get; set; }
+    public uint BrandModelId { get; set; }
     /// <summary>
     /// Название
     /// </summary>
@@ -25,4 +21,9 @@ public class Model
     /// Описание
     /// </summary>
     public string Description { get; set; } = null!;
+    
+    /// <summary>
+    /// Связь с таблицей Brand
+    /// </summary>
+    public Brand Brand { get; set; }
 }
