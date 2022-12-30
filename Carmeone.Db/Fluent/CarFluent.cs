@@ -10,7 +10,7 @@ public static class CarFluent
 
         modelBuilder.Entity<Car>(car =>
         {
-            car.ToTable("cars", t => { t.HasComment("Легковой автомобиль"); });
+            car.ToTable(t => { t.HasComment("Легковой автомобиль"); });
             
             car
                 .Property(p => p.CarId)
@@ -21,6 +21,8 @@ public static class CarFluent
             
             car
                 .Property(a => a.CarType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Тип транспортного средства");
             
@@ -34,6 +36,8 @@ public static class CarFluent
             
             car
                 .Property(a => a.CarInteriorType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Тип салона автомобиля");
             
             

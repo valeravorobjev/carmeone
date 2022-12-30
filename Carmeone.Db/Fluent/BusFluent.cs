@@ -10,7 +10,7 @@ public static class BusFluent
 
         modelBuilder.Entity<Bus>(bus =>
         {
-            bus.ToTable("buses", t => { t.HasComment("Автобус"); });
+            bus.ToTable(t => { t.HasComment("Автобус"); });
             
             bus
                 .Property(p => p.BusId)
@@ -21,6 +21,8 @@ public static class BusFluent
             
             bus
                 .Property(a => a.BusType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Тип автобуса");
         });

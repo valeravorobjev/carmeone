@@ -9,7 +9,7 @@ public static class VehicleFluent
     {
         modelBuilder.Entity<Vehicle>(vehicle =>
         {
-            vehicle.ToTable("vehicles", t => { t.HasComment("Транспортные средства"); });
+            vehicle.ToTable(t => { t.HasComment("Транспортные средства"); });
 
             vehicle
                 .HasOne(p => p.Car)
@@ -35,6 +35,8 @@ public static class VehicleFluent
             
             vehicle
                 .Property(p => p.VehicleType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Тип транспортного средства");
             
@@ -69,6 +71,8 @@ public static class VehicleFluent
             
             vehicle
                 .Property(p => p.ColorType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Цвет");
             
             vehicle
@@ -77,10 +81,14 @@ public static class VehicleFluent
             
             vehicle
                 .Property(p => p.EngineType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Тип двигателя");
             
             vehicle
                 .Property(p => p.TransmissionType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Тип коробки передач");
             
             vehicle
@@ -97,6 +105,8 @@ public static class VehicleFluent
             
             vehicle
                 .Property(p => p.VehicleStateType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Состояние транспортного средства");
             
             vehicle
@@ -105,6 +115,8 @@ public static class VehicleFluent
             
             vehicle
                 .Property(p => p.EnvironmentalSafetyType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .HasComment("Класс экологической безопасности");
             
             vehicle

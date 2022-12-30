@@ -9,7 +9,7 @@ public static class IndividualUserFluent
     {
         modelBuilder.Entity<IndividualUser>(user =>
         {
-            user.ToTable("individual_users", t => { t.HasComment("Индивидуальный пользователь"); });
+            user.ToTable(t => { t.HasComment("Индивидуальный пользователь"); });
 
             user
                 .Property(p => p.IndividualUserId)

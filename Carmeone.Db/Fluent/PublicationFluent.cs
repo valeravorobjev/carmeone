@@ -9,7 +9,7 @@ public static class PublicationFluent
     {
         modelBuilder.Entity<Publication>(publication =>
         {
-            publication.ToTable("publications", t => { t.HasComment("Публикация"); });
+            publication.ToTable(t => { t.HasComment("Публикация"); });
 
             publication
                 .HasMany(p => p.Users)
@@ -51,6 +51,8 @@ public static class PublicationFluent
 
             publication
                 .Property(a => a.TargetType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Цель размещения транспортного средства на площадке");
         });

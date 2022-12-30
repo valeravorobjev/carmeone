@@ -9,7 +9,7 @@ public static class UserFluent
     {
         modelBuilder.Entity<User>(user =>
         {
-            user.ToTable("users", t => { t.HasComment("Пользователь"); });
+            user.ToTable(t => { t.HasComment("Пользователь"); });
             
             user
                 .HasOne(p => p.CompanyUser)

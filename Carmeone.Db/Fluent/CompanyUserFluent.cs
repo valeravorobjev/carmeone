@@ -9,11 +9,10 @@ public static class CompanyUserFluent
     {
         modelBuilder.Entity<CompanyUser>(user =>
         {
-            user.ToTable("company_users", t => { t.HasComment("Пользователь - компания"); });
+            user.ToTable(t => { t.HasComment("Пользователь - компания"); });
 
             user
                 .Property(p => p.CompanyUserId)
-                .HasColumnName("company_user_id")
                 .HasColumnType("uuid")
                 .HasDefaultValueSql("uuid_generate_v4()")
                 .IsRequired()

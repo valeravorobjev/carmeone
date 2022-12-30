@@ -10,7 +10,7 @@ public static class MotoFluent
 
         modelBuilder.Entity<Moto>(moto =>
         {
-            moto.ToTable("motos", t => { t.HasComment("Мотоцикл"); });
+            moto.ToTable(t => { t.HasComment("Мотоцикл"); });
             
             moto
                 .Property(p => p.MotoId)
@@ -21,6 +21,8 @@ public static class MotoFluent
             
             moto
                 .Property(a => a.MotoType)
+                .HasConversion<string>()
+                .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Тип мотоцикла");
         });
