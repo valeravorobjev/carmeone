@@ -13,4 +13,9 @@ public class CarmeoneContext: DbContext
     public DbSet<Car>? Cars { get; set; }
     public DbSet<Moto>? Motos { get; set; }
     public DbSet<Bus>? Buses { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql("Host=localhost;Database=carmeone;Username=valera;Password=P@ssw0rd");
+    }
 }

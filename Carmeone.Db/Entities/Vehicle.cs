@@ -5,23 +5,18 @@ namespace Carmeone.Db.Entities;
 /// <summary>
 /// Транспортное средство
 /// </summary>
-public abstract class Vehicle
+public class Vehicle
 {
     /// <summary>
     /// Идентификатор
     /// </summary>
     public string VehicleId { get; set; } = null!;
-    
+
     /// <summary>
     /// Тип транспортного средства
     /// </summary>
     public VehicleType VehicleType { get; set; }
-    
-    /// <summary>
-    /// Название
-    /// </summary>
-    public string Name { get; set; } = null!;
-    
+
     /// <summary>
     /// Новый или подержанный автомобиль
     /// </summary>
@@ -31,12 +26,12 @@ public abstract class Vehicle
     /// Идентификатор модели 
     /// </summary>
     public uint ModelId { get; set; }
-    
+
     /// <summary>
     /// Количество владельцев
     /// </summary>
     public int OwnersCount { get; set; }
-    
+
     /// <summary>
     /// Год выпуска
     /// </summary>
@@ -56,7 +51,7 @@ public abstract class Vehicle
     /// Стоимость
     /// </summary>
     public decimal Cost { get; set; }
-    
+
     /// <summary>
     /// Мощьность кВт
     /// </summary>
@@ -81,7 +76,7 @@ public abstract class Vehicle
     /// Тип коробки передач
     /// </summary>
     public TransmissionType TransmissionType { get; set; }
-    
+
     /// <summary>
     /// Объем двигателя
     /// </summary>
@@ -91,60 +86,47 @@ public abstract class Vehicle
     /// Фотографии
     /// </summary>
     public string Photos { get; set; } = null!;
-    
+
     /// <summary>
     /// Порядок следования фотографий
     /// </summary>
     public byte PhotoOrders { get; set; }
-    
-    /// <summary>
-    /// Дата создания объявления
-    /// </summary>
-    public DateTime CreateDate { get; set; }
-    
-    /// <summary>
-    /// Дата истечения публикации
-    /// </summary>
-    public DateTime ExpirationDate { get; set; }
-    
-    /// <summary>
-    /// Автоматически возобнавлять объявление
-    /// </summary>
-    public bool IsAutoRenew { get; set; }
-    
+
     /// <summary>
     /// Состояние транспортного средства
     /// </summary>
     public VehicleStateType VehicleStateType { get; set; }
-    
+
     /// <summary>
     /// Расход топлива на 100 км
     /// </summary>
     public int FuelConsumption { get; set; }
-    
+
     /// <summary>
     /// Класс экологической безопасности
     /// </summary>
     public EnvironmentalSafetyType EnvironmentalSafetyType { get; set; }
-    
+
     /// <summary>
     /// Эфективность выбросов СО
     /// </summary>
     public EfficiencyClassType EfficiencyClass { get; set; }
-    
+
     /// <summary>
     /// Цель размещения транспортного средства на площадке
     /// </summary>
     public TargetType TargetType { get; set; }
-    
+
     /// <summary>
     /// Связь с таблицей автомобилей
     /// </summary>
     public ICollection<Car> Cars { get; set; }
+
     /// <summary>
     /// Связь с таблицей мотоциклов
     /// </summary>
     public ICollection<Moto> Motos { get; set; }
+
     /// <summary>
     /// Связь с таблицей автобусов
     /// </summary>

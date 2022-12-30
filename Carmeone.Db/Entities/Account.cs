@@ -10,7 +10,7 @@ public class Account
     /// <summary>
     /// Идентификатор аккаунта
     /// </summary>
-    public string AccountId { get; set; } = null!;
+    public string AccountId { get; set; }
 
     /// <summary>
     /// Логин пользователя

@@ -3,12 +3,12 @@ namespace Carmeone.Db.Entities;
 /// <summary>
 /// Пользователь
 /// </summary>
-public abstract class User
+public class User
 {
     /// <summary>
     /// Идентификатор пользователя
     /// </summary>
-    public string UserId { get; set; } = null!;
+    public string UserId { get; set; }
 
     /// <summary>
     /// Аватар (картинка)
@@ -34,9 +34,19 @@ public abstract class User
     /// Дата регистрации
     /// </summary>
     public DateTime RegistrationDate { get; set; }
+
+    /// <summary>
+    /// Связь с таблицей пользователя-компании
+    /// </summary>
+    public CompanyUser CompanyUser { get; set; }
+
+    /// <summary>
+    /// Связь с таблицей обычного пользователя
+    /// </summary>
+    public IndividualUser IndividualUser { get; set; }
     
     /// <summary>
-    /// Связь с таблицей Account
+    /// Связь многие ко многим с таблицей публикаций
     /// </summary>
-    public Account Account { get; set; }
+    public ICollection<Publication> Publications { get; set; }
 }

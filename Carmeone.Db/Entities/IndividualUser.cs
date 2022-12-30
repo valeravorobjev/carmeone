@@ -33,5 +33,5 @@ public class IndividualUser
     /// <summary>
     /// Связь с таблицей User
     /// </summary>
-    public User User { get; set; }
+    // public User User { get; set; }
 }
