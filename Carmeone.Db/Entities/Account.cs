@@ -10,7 +10,7 @@ public class Account
     /// <summary>
     /// Идентификатор аккаунта
     /// </summary>
-    public string AccountId { get; set; }
+    public Guid AccountId { get; set; }
 
     /// <summary>
     /// Логин пользователя
@@ -36,9 +36,9 @@ public class Account
     /// Роль аккаунта пользователя
     /// </summary>
     public AccountRole AccountRole { get; set; }
-    
+
     /// <summary>
     /// Связь с таблицей User
     /// </summary>
-    public User User { get; set; }
+    public User User { get; set; } = null!;
 }

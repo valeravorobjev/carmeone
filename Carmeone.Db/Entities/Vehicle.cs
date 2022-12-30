@@ -10,7 +10,7 @@ public class Vehicle
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string VehicleId { get; set; } = null!;
+    public Guid VehicleId { get; set; }
 
     /// <summary>
     /// Тип транспортного средства
@@ -23,84 +23,79 @@ public class Vehicle
     public bool IsNew { get; set; }
 
     /// <summary>
-    /// Идентификатор модели 
-    /// </summary>
-    public uint ModelId { get; set; }
-
-    /// <summary>
     /// Количество владельцев
     /// </summary>
-    public int OwnersCount { get; set; }
+    public int? OwnersCount { get; set; }
 
     /// <summary>
     /// Год выпуска
     /// </summary>
-    public int YearManufacture { get; set; }
+    public int? YearManufacture { get; set; }
 
     /// <summary>
     /// Серийный номер
     /// </summary>
-    public string SerialNumber { get; set; } = null!;
+    public string? SerialNumber { get; set; }
 
     /// <summary>
     /// Пробег
     /// </summary>
-    public int Mileage { get; set; }
+    public int? Mileage { get; set; }
 
     /// <summary>
     /// Стоимость
     /// </summary>
-    public decimal Cost { get; set; }
+    public decimal? Cost { get; set; }
 
     /// <summary>
     /// Мощьность кВт
     /// </summary>
-    public int Power { get; set; }
+    public int? Power { get; set; }
 
     /// <summary>
     /// Цвет
     /// </summary>
-    public ColorType ColorType { get; set; }
+    public ColorType? ColorType { get; set; }
 
     /// <summary>
-    /// Цвет
+    /// Металик или нет
     /// </summary>
-    public bool IsMetalic { get; set; }
+    public bool? IsMetalic { get; set; }
 
     /// <summary>
     /// Тип двигателя
     /// </summary>
-    public EngineType EngineType { get; set; }
+    public EngineType? EngineType { get; set; }
 
     /// <summary>
     /// Тип коробки передач
     /// </summary>
-    public TransmissionType TransmissionType { get; set; }
+    public TransmissionType? TransmissionType { get; set; }
 
     /// <summary>
     /// Объем двигателя
     /// </summary>
-    public int EngineCapacity { get; set; }
+    public int? EngineCapacity { get; set; }
 
     /// <summary>
     /// Фотографии
     /// </summary>
-    public string Photos { get; set; } = null!;
+    public List<string>? Photos { get; set; }
 
     /// <summary>
     /// Порядок следования фотографий
     /// </summary>
-    public byte PhotoOrders { get; set; }
+    public byte? PhotoOrders { get; set; }
 
     /// <summary>
     /// Состояние транспортного средства
     /// </summary>
-    public VehicleStateType VehicleStateType { get; set; }
+    public VehicleStateType? VehicleStateType { get; set; }
 
     /// <summary>
     /// Расход топлива на 100 км
     /// </summary>
-    public int FuelConsumption { get; set; }
+    public int? FuelConsumption { get; set; }
 
     /// <summary>
     /// Класс экологической безопасности
@@ -113,22 +108,17 @@ public class Vehicle
     public EfficiencyClassType EfficiencyClass { get; set; }
 
     /// <summary>
-    /// Цель размещения транспортного средства на площадке
-    /// </summary>
-    public TargetType TargetType { get; set; }
-
-    /// <summary>
     /// Связь с таблицей автомобилей
     /// </summary>
-    public ICollection<Car> Cars { get; set; }
+    public Car? Car { get; set; }
 
     /// <summary>
     /// Связь с таблицей мотоциклов
     /// </summary>
-    public ICollection<Moto> Motos { get; set; }
+    public Moto? Moto { get; set; }
 
     /// <summary>
     /// Связь с таблицей автобусов
     /// </summary>
-    public ICollection<Bus> Buses { get; set; }
+    public Bus? Bus { get; set; }
 }

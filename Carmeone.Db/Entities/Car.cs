@@ -10,7 +10,7 @@ public class Car
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string CarId { get; set; } = null!;
+    public Guid CarId { get; set; }
     
     /// <summary>
     /// Тип транспортного средства
@@ -20,20 +20,20 @@ public class Car
     /// <summary>
     /// Количество сидений
     /// </summary>
-    public int SeatsCount { get; set; }
+    public int? SeatsCount { get; set; }
 
     /// <summary>
     /// Количество дверей
     /// </summary>
-    public int DorsCount { get; set; }
+    public int? DorsCount { get; set; }
 
     /// <summary>
     /// Тип салона автомобиля
     /// </summary>
-    public CarInteriorType CarInteriorType { get; set; }
-    
+    public CarInteriorType? CarInteriorType { get; set; }
+
     /// <summary>
     /// Связь с таблицей транспортного средства
     /// </summary>
-    public Vehicle Vehicle { get; set; }
+    public Vehicle Vehicle { get; set; } = null!;
 }

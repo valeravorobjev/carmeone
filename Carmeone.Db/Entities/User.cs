@@ -8,7 +8,7 @@ public class User
     /// <summary>
     /// Идентификатор пользователя
     /// </summary>
-    public string UserId { get; set; }
+    public Guid UserId { get; set; }
 
     /// <summary>
     /// Аватар (картинка)
@@ -38,15 +38,21 @@ public class User
     /// <summary>
     /// Связь с таблицей пользователя-компании
     /// </summary>
-    public CompanyUser CompanyUser { get; set; }
-
+    public CompanyUser? CompanyUser { get; set; }
+    
     /// <summary>
     /// Связь с таблицей обычного пользователя
     /// </summary>
-    public IndividualUser IndividualUser { get; set; }
+    public IndividualUser? IndividualUser { get; set; }
+    
+    public Account Account { get; set; }
     
     /// <summary>
     /// Связь многие ко многим с таблицей публикаций
     /// </summary>
     public ICollection<Publication> Publications { get; set; }
+    /// <summary>
+    /// Связь многие ко многим с таблицей публикаций
+    /// </summary>
+    public ICollection<UserPublication> UserPublications { get; set; }
 }

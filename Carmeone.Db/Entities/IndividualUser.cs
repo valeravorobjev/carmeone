@@ -8,7 +8,7 @@ public class IndividualUser
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string IndividualUserId { get; set; }
+    public Guid IndividualUserId { get; set; }
 
     /// <summary>
     /// Фамилия
@@ -28,10 +28,10 @@ public class IndividualUser
     /// <summary>
     /// Дата рождения
     /// </summary>
-    public DateTime DateBirth { get; set; }
-
+    public DateTime? DateBirth { get; set; }
+    
     /// <summary>
-    /// Связь с таблицей User
+    /// Пользователь
     /// </summary>
-    // public User User { get; set; }
+    public User? User { get; set; }
 }

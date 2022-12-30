@@ -10,7 +10,7 @@ public class Bus
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string BusId { get; set; } = null!;
+    public Guid BusId { get; set; }
     
     /// <summary>
     /// Тип автобуса

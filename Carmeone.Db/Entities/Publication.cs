@@ -1,11 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Carmeone.Db.Entities.Base;
+using Microsoft.EntityFrameworkCore;
+
 namespace Carmeone.Db.Entities;
 
+/// <summary>
+/// Публикация объявления
+/// </summary>
 public class Publication
 {
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string PublicationId { get; set; }
+    public Guid PublicationId { get; set; }
     
     /// <summary>
     /// Дата создания объявления
@@ -23,6 +31,11 @@ public class Publication
     public bool IsAutoRenew { get; set; }
     
     /// <summary>
+    /// Цель размещения транспортного средства на площадке
+    /// </summary>
+    public TargetType TargetType { get; set; }
+    
+    /// <summary>
     /// Транспортное средство
     /// </summary>
     public Vehicle Vehicle { get; set; }
@@ -31,4 +44,8 @@ public class Publication
     /// Связь многие ко многим с таблицей пользователей
     /// </summary>
     public ICollection<User> Users { get; set; }
+    /// <summary>
+    /// Связь многие ко многим с таблицей пользователей
+    /// </summary>
+    public ICollection<UserPublication> UserPublications { get; set; }
 }

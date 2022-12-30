@@ -2,12 +2,15 @@ using Carmeone.Db.Entities.Base;
 
 namespace Carmeone.Db.Entities;
 
+/// <summary>
+/// Мотоцикл
+/// </summary>
 public class Moto
 {
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public string MotoId { get; set; } = null!;
+    public Guid MotoId { get; set; }
     
     /// <summary>
     /// Тип мотоцикла
