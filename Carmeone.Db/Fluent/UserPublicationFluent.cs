@@ -15,6 +15,14 @@ public static class UserPublicationFluent
     /// <returns></returns>
     public static ModelBuilder UserPublication(this ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<UserPublication>(up =>
+        {
+            up.ToTable(t => { t.HasComment("Связь многие ко многим между пользователями и публикациями"); });
+
+            up.Property(p => p.PublicationId).HasComment("Идентификатор публикации");
+            up.Property(p => p.UserId).HasComment("Идентификатор пользователя");
+        });
+
         modelBuilder
             .Entity<User>()
             .HasMany<Publication>(m => m.Publications)
@@ -24,12 +32,12 @@ public static class UserPublicationFluent
                 m.HasOne(o => o.User)
                     .WithMany(o => o.UserPublications)
                     .HasForeignKey(o => o.UserId);
-                
+
                 m.HasOne(o => o.Publication)
                     .WithMany(o => o.UserPublications)
                     .HasForeignKey(o => o.PublicationId);
             });
-    
+
         return modelBuilder;
     }
 }
