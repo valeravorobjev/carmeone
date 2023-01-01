@@ -1,3 +1,5 @@
+using Carmeone.Repositories.Models;
+
 namespace Carmeone.Repositories.Contracts;
 
 /// <summary>
@@ -5,5 +7,5 @@ namespace Carmeone.Repositories.Contracts;
 /// </summary>
 public interface IAccountRepository
 {
-    
+    ValueTask<bool> RegistrationAsync(DtoRegistration dtoRegistration);
 }

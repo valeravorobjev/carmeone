@@ -31,6 +31,16 @@ public class Account
     /// Роль аккаунта пользователя
     /// </summary>
     public AccountRole AccountRole { get; set; }
+    
+    /// <summary>
+    /// Активен ли аккаунт
+    /// </summary>
+    public bool IsActive { get; set; }
+
+    /// <summary>
+    /// Код активации. Отправляется по email для подтверждения регистрации.
+    /// </summary>
+    public string ActivateCode { get; set; } = null!;
 
     /// <summary>
     /// Связь с таблицей User

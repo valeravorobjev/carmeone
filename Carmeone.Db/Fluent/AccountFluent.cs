@@ -40,6 +40,18 @@ public static class AccountFluent
                 .HasColumnType("integer")
                 .IsRequired()
                 .HasComment("Соль, первичная. К этой соли подмешивается специальный код.");
+            
+            account
+                .Property(a => a.IsActive)
+                .HasColumnType("bool")
+                .IsRequired()
+                .HasComment("Активен аккаунт или нет");
+            
+            account
+                .Property(a => a.ActivateCode)
+                .HasColumnType("varchar")
+                .IsRequired()
+                .HasComment("Код активации. Отправляется по email для подтверждения регистрации.");
 
             account
                 .Property(a => a.AccountRole)
