@@ -24,10 +24,10 @@ public static class AccountFluent
                 .HasComment("Идентификатор");
 
             account
-                .Property(a => a.Login)
+                .Property(a => a.Email)
                 .HasColumnType("varchar")
                 .IsRequired()
-                .HasComment("Логин пользователя");
+                .HasComment("Почтовый адрес");
 
             account
                 .Property(a => a.Password)
@@ -41,12 +41,6 @@ public static class AccountFluent
                 .IsRequired()
                 .HasComment("Соль, первичная. К этой соли подмешивается специальный код.");
 
-            account
-                .Property(a => a.Email)
-                .HasColumnType("varchar")
-                .IsRequired()
-                .HasComment("Почтовый адрес");
-            
             account
                 .Property(a => a.AccountRole)
                 .HasConversion<string>()

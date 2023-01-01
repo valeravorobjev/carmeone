@@ -13,9 +13,9 @@ public class Account
     public Guid AccountId { get; set; }
 
     /// <summary>
-    /// Логин пользователя
+    /// Почтовый адрес
     /// </summary>
-    public string Login { get; set; } = null!;
+    public string Email { get; set; } = null!;
 
     /// <summary>
     /// Пароль (зашифрован)
@@ -26,11 +26,6 @@ public class Account
     /// Соль, первичная. К этой соли подмешивается специальный код.
     /// </summary>
     public int Salt { get; set; }
-
-    /// <summary>
-    /// Почтовый адрес
-    /// </summary>
-    public string Email { get; set; } = null!;
 
     /// <summary>
     /// Роль аккаунта пользователя
