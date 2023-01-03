@@ -7,5 +7,5 @@ namespace Carmeone.Repositories.Contracts;
 /// </summary>
 public interface IAccountRepository
 {
-    ValueTask<bool> RegistrationAsync(DtoRegistration dtoRegistration);
+    ValueTask<CResult<string>> RegistrationAsync(CRegistration dtoRegistration);
 }

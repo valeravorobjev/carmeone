@@ -7,7 +7,7 @@ namespace Carmeone.Repositories.Models;
 /// <summary>
 /// Данные для регистрации нового пользователя в системе
 /// </summary>
-public class DtoRegistration
+public class CRegistration
 {
     /// <summary>
     /// Электронная почта пользователя. Является логином для входа.

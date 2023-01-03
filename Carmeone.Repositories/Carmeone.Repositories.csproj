@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Carmeone.Db\Carmeone.Db.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="EmailValidation" Version="1.0.8" />
+    </ItemGroup>
+
 </Project>
