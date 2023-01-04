@@ -13,14 +13,21 @@ namespace Carmeone.Repositories;
 
 public class AccountRepository: IAccountRepository
 {
-    private readonly CarmeoneContext _context;
+    private readonly CContext _context;
+    private readonly CSmtpSettings _smtpSettings;
     
-    public AccountRepository(CarmeoneContext context)
+    public AccountRepository(CContext context, CSmtpSettings smtpSettings)
     {
         _context = context;
+        _smtpSettings = smtpSettings;
 
         if (_context is null)
             throw new Exception("Context is null.");
+        
+        if (_smtpSettings is null)
+            throw new Exception("SmtpSettings is null.");
+        
+        
     }
     
     public async ValueTask<CResult<string>> RegistrationAsync(CRegistration registration)
@@ -76,21 +83,26 @@ public class AccountRepository: IAccountRepository
 
         try
         {
-            var smtpClient = new SmtpClient("smtp.gmail.com")
+            var smtpClient = new SmtpClient("smtp.mail.ru")
             {
-                Port = 587,
-                Credentials = new NetworkCredential("username", "password"),
+                Port = 465,
+                Credentials = new NetworkCredential(_smtpSettings.Login, _smtpSettings.Password),
                 EnableSsl = true,
             };
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("email"),
-                Subject = "subject",
-                Body = "<h1>Hello</h1>",
+                From = new MailAddress(_smtpSettings.Login),
+                Subject = "Регистрация Carmeone",
+                Body = @$"
+<h1>Регистрация</h1>
+<p>Здравствуйте, спасибо за регистрацию на сервисе Carmeone!</p>
+<p>Для завершения регистрации, пожалуйста, перейдите по следущей ссылке: 
+http://carmeone.ru/registration/confirm/{activationCode}</p>
+",
                 IsBodyHtml = true,
             };
-            mailMessage.To.Add("recipient");
+            mailMessage.To.Add(registration.Email);
 
             smtpClient.Send(mailMessage);
         }

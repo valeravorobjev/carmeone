@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Carmeone.Db;
 
-public class CarmeoneContext : DbContext
+public class CContext : DbContext
 {
     public DbSet<Account>? Accounts { get; set; }
     public DbSet<User>? Users { get; set; }
