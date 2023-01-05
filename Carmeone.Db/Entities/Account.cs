@@ -40,7 +40,7 @@ public class Account
     /// <summary>
     /// Код активации. Отправляется по email для подтверждения регистрации.
     /// </summary>
-    public string ActivateCode { get; set; } = null!;
+    public string RegistrationConfirmCode { get; set; } = null!;
 
     /// <summary>
     /// Связь с таблицей User

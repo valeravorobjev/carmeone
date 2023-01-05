@@ -20,7 +20,7 @@ public static class ValidationExt
         if (string.IsNullOrEmpty(registration.Email))
             validation.FieldErrors.Add(nameof(registration.Email), CCodes.FieldEmpty);
         
-        if (EmailValidator.Validate(registration.Email))
+        if (!EmailValidator.Validate(registration.Email))
             validation.FieldErrors.Add(nameof(registration.Email), CCodes.EmailInvalid);
         
         if (string.IsNullOrEmpty(registration.Password))
@@ -34,5 +34,23 @@ public static class ValidationExt
 
         return validation;
 
+    }
+
+    /// <summary>
+    /// Валидатор модели подтверждения регистрации
+    /// </summary>
+    /// <param name="registrationConfirm">Модель подтверждения регистрации</param>
+    /// <returns></returns>
+    public static CValidation Validate(this CRegistrationConfirm registrationConfirm)
+    {
+        CValidation validation = new CValidation();
+        
+        if (string.IsNullOrEmpty(registrationConfirm.AccountId))
+            validation.FieldErrors.Add(nameof(registrationConfirm.AccountId), CCodes.FieldEmpty);
+        
+        if (string.IsNullOrEmpty(registrationConfirm.RegistrationConfirmCode))
+            validation.FieldErrors.Add(nameof(registrationConfirm.RegistrationConfirmCode), CCodes.FieldEmpty);
+
+        return validation;
     }
 }

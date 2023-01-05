@@ -19,6 +19,7 @@ public class CContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        //TODO: Удалить строку соединения с БД
         optionsBuilder
             .UseNpgsql("Host=localhost;Database=carmeone;Username=valera;Password=P@ssw0rd")
             .UseSnakeCaseNamingConvention();

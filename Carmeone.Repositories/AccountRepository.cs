@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Carmeone.Repositories;
 
-public class AccountRepository: IAccountRepository
+public class AccountRepository : IAccountRepository
 {
     private readonly CContext _context;
     private readonly CSmtpSettings _smtpSettings;
-    
+
     public AccountRepository(CContext context, CSmtpSettings smtpSettings)
     {
         _context = context;
@@ -23,13 +23,11 @@ public class AccountRepository: IAccountRepository
 
         if (_context is null)
             throw new Exception("Context is null.");
-        
+
         if (_smtpSettings is null)
             throw new Exception("SmtpSettings is null.");
-        
-        
     }
-    
+
     public async ValueTask<CResult<string>> RegistrationAsync(CRegistration registration)
     {
         CValidation validation = registration.Validate();
@@ -62,7 +60,7 @@ public class AccountRepository: IAccountRepository
         var passtring = registration.Password + salt;
 
         var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(passtring));
-        StringBuilder sbHash = new StringBuilder(); ;
+        StringBuilder sbHash = new StringBuilder();
         foreach (byte hashByte in hashBytes)
         {
             sbHash.Append(hashByte.ToString("x2"));
@@ -74,19 +72,23 @@ public class AccountRepository: IAccountRepository
         Account account = new Account
         {
             AccountRole = registration.AccountRole,
-            ActivateCode = activationCode,
+            RegistrationConfirmCode = activationCode,
             Email = registration.Email,
             IsActive = false,
             Password = hash,
             Salt = salt
         };
 
+        _context.Add(account);
+        await _context.SaveChangesAsync();
+
         try
         {
             var smtpClient = new SmtpClient("smtp.mail.ru")
             {
-                Port = 465,
+                Port = 587,
                 Credentials = new NetworkCredential(_smtpSettings.Login, _smtpSettings.Password),
+                Timeout = 10 * 1000,
                 EnableSsl = true,
             };
 
@@ -98,7 +100,7 @@ public class AccountRepository: IAccountRepository
 <h1>Регистрация</h1>
 <p>Здравствуйте, спасибо за регистрацию на сервисе Carmeone!</p>
 <p>Для завершения регистрации, пожалуйста, перейдите по следущей ссылке: 
-http://carmeone.ru/registration/confirm/{activationCode}</p>
+http://carmeone.ru/registration/confirm/{account.AccountId}/{activationCode}</p>
 ",
                 IsBodyHtml = true,
             };
@@ -119,12 +121,55 @@ http://carmeone.ru/registration/confirm/{activationCode}</p>
             };
         }
 
-        _context.Add(account);
-        await _context.SaveChangesAsync();
-
         return new CResult<string>
         {
             Data = account.AccountId.ToString(),
+            StatusResult = new CStatusResult
+            {
+                Status = CCodes.Ok
+            }
+        };
+    }
+
+    public async ValueTask<CResult<bool>> ConfirmRegistrationAsync(CRegistrationConfirm registrationConfirm)
+    {
+        CValidation validation = registrationConfirm.Validate();
+
+        if (!validation.IsValid)
+            return new CResult<bool>
+            {
+                Data = false,
+                StatusResult = new CStatusResult
+                {
+                    Message = validation.ToString(),
+                    Status = CCodes.ModelInvalid,
+                    Validation = validation
+                }
+            };
+
+        var account = await _context.Accounts!.FirstOrDefaultAsync(a =>
+            a.AccountId == new Guid(registrationConfirm.AccountId) &&
+            a.RegistrationConfirmCode == registrationConfirm.RegistrationConfirmCode);
+
+        if (account is null)
+        {
+            return new CResult<bool>
+            {
+                Data = false,
+                StatusResult = new CStatusResult
+                {
+                    Status = CCodes.NotFound,
+                    Message = $"Account with id {registrationConfirm.AccountId} doesn't exists"
+                }
+            };
+        }
+
+        account.IsActive = true;
+        await _context.SaveChangesAsync();
+        
+        return new CResult<bool>
+        {
+            Data = true,
             StatusResult = new CStatusResult
             {
                 Status = CCodes.Ok

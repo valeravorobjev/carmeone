@@ -48,7 +48,7 @@ public static class AccountFluent
                 .HasComment("Активен аккаунт или нет");
             
             account
-                .Property(a => a.ActivateCode)
+                .Property(a => a.RegistrationConfirmCode)
                 .HasColumnType("varchar")
                 .IsRequired()
                 .HasComment("Код активации. Отправляется по email для подтверждения регистрации.");
