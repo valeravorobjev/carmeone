@@ -1,47 +1,57 @@
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Models;
 
 /// <summary>
 /// Статический класс с перечнем кодов ошибок.
 /// </summary>
-public static class CCodes
+public enum StatusCode
 {
     /// <summary>
     /// Успешно
     /// </summary>
-    public const string Ok = "OK";
+    Ok,
 
     /// <summary>
     /// Поле пустое
     /// </summary>
-    public const string FieldEmpty= "FIELD_EMPTY";
+    FieldEmpty,
 
     /// <summary>
     /// Почтовый адрес имеет не верный формат
     /// </summary>
-    public const string EmailInvalid = "INVALID_EMAIL";
+    EmailInvalid,
+    
+    /// <summary>
+    /// Не верная роль
+    /// </summary>
+    RoleInvalid,
 
     /// <summary>
     /// Пароль не совпадает с подтверждением
     /// </summary>
-    public const string PasswordNotEqualConfirm = "PASSWORD_NOT_EQUAL_CONFIRM";
+    PasswordNotEqualConfirm,
     
     /// <summary>
     /// Модель не валидна
     /// </summary>
-    public const string ModelInvalid= "MODEL_INVALID";
+    ModelInvalid,
     
     /// <summary>
     /// Значение не найдено
     /// </summary>
-    public const string NotFound = "NOT_FOUND";
+    NotFound,
+    
+    /// <summary>
+    /// Логин или пароль не верные
+    /// </summary>
+    LoginOrPasswordIncorrect,
 
     /// <summary>
     /// Пользователь с таким логином уже существует
     /// </summary>
-    public const string UserAllreadyExists = "USER_ALLREADY_EXISTS";
+    UserAllreadyExists,
 
     /// <summary>
     /// Внутренняя ошибка сервера
     /// </summary>
-    public const string InternalServerError = "INTERNAL_SERVER_ERROR";
+    InternalError
 }

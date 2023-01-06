@@ -1,14 +1,14 @@
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Models;
 
 /// <summary>
 /// Модель валидации. Содержит состояние валидации модели в целом.
 /// А так же статусы с кодами для всех полей, проверяемой модели.
 /// </summary>
-public class CValidation
+public class Validation
 {
-    public CValidation()
+    public Validation()
     {
-        FieldErrors = new Dictionary<string, string>();
+        FieldErrors = new Dictionary<string, StatusCode>();
     }
 
     /// <summary>
@@ -19,7 +19,7 @@ public class CValidation
     /// <summary>
     /// Ошибки полей, проверяемой модели
     /// </summary>
-    public Dictionary<string, string> FieldErrors { get; set; } = null!;
+    public Dictionary<string, StatusCode> FieldErrors { get; set; }
 
     public override string ToString()
     {
@@ -28,6 +28,6 @@ public class CValidation
             ? "FieldErrors: " + string.Join(", ", FieldErrors.Select(f => $"{f.Key}={f.Value}"))
             : string.Empty;
 
-        return string.Join(" | ", new[] { isvalid, validations });
+        return string.Join(" | ", isvalid, validations);
     }
 }

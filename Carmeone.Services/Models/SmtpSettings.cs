@@ -1,9 +1,9 @@
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Models;
 
 /// <summary>
 /// Настройки SMTP
 /// </summary>
-public class CSmtpSettings
+public class SmtpSettings
 {
     /// <summary>
     /// Логин пользователя

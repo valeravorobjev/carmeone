@@ -10,11 +10,16 @@ public static class AccountFluent
         modelBuilder.Entity<Account>(account =>
         {
             account.ToTable(t => { t.HasComment("Аккаунт пользователя"); });
-
+            
             account
                 .HasOne(p => p.User)
                 .WithOne(p => p.Account)
                 .HasForeignKey<User>(p => p.UserId);
+            
+            account
+                .HasOne(p => p.Company)
+                .WithOne(p => p.Account)
+                .HasForeignKey<Company>(p => p.CompanyId);
 
             account
                 .Property(p => p.AccountId)
@@ -48,10 +53,16 @@ public static class AccountFluent
                 .HasComment("Активен аккаунт или нет");
             
             account
-                .Property(a => a.RegistrationConfirmCode)
-                .HasColumnType("varchar")
+                .Property(a => a.ActivationCode)
+                .HasColumnType("uuid")
                 .IsRequired()
                 .HasComment("Код активации. Отправляется по email для подтверждения регистрации.");
+            
+            account
+                .Property(a => a.RegistrationDate)
+                .HasColumnName("registration_date")
+                .IsRequired()
+                .HasComment("Дата регистрации");
 
             account
                 .Property(a => a.AccountRole)

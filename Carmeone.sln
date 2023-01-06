@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Db", "Carmeone.Db\Carmeone.Db.csproj", "{F037BEFF-71B5-404D-9F4A-DC011C845365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Repositories", "Carmeone.Repositories\Carmeone.Repositories.csproj", "{06E854C9-3AEA-4E24-8F14-19C676B8CD96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Services", "Carmeone.Services\Carmeone.Services.csproj", "{06E854C9-3AEA-4E24-8F14-19C676B8CD96}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Tests", "Carmeone.Tests\Carmeone.Tests.csproj", "{DD32BCC6-5F43-4152-A01C-0547E0C6E80A}"
 EndProject

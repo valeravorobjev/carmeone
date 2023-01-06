@@ -8,7 +8,7 @@ public enum AccountRole
     /// <summary>
     /// Простой пользователь
     /// </summary>
-    Individual,
+    User,
 
     /// <summary>
     /// Компания

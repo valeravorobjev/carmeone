@@ -10,16 +10,6 @@ public static class UserFluent
         modelBuilder.Entity<User>(user =>
         {
             user.ToTable(t => { t.HasComment("Пользователь"); });
-            
-            user
-                .HasOne(p => p.CompanyUser)
-                .WithOne(p => p.User)
-                .HasForeignKey<CompanyUser>(p => p.CompanyUserId);
-            
-            user
-                .HasOne(p => p.IndividualUser)
-                .WithOne(p => p.User)
-                .HasForeignKey<IndividualUser>(p => p.IndividualUserId);
 
             user
                 .Property(p => p.UserId)
@@ -48,16 +38,35 @@ public static class UserFluent
                 .HasComment("Адрес");
             
             user
+                .Property(a => a.Sity)
+                .HasColumnName("sity")
+                .HasColumnType("varchar")
+                .HasComment("Город");
+            
+            user
+                .Property(p => p.FirstName)
+                .HasColumnType("varchar")
+                .HasComment("Фамилия");
+            
+            user
+                .Property(p => p.LastName)
+                .HasColumnType("varchar")
+                .HasComment("Имя");
+            
+            user
+                .Property(p => p.MiddleName)
+                .HasColumnType("varchar")
+                .HasComment("Отчество");
+            
+            user
+                .Property(p => p.DateBirth)
+                .HasComment("Дата рождения");
+            
+            user
                 .Property(a => a.Description)
                 .HasColumnName("description")
                 .HasColumnType("text")
                 .HasComment("Описание");
-            
-            user
-                .Property(a => a.RegistrationDate)
-                .HasColumnName("registration_date")
-                .IsRequired()
-                .HasComment("Дата регистрации");
 
         });
 
