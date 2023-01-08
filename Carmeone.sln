@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Services", "Carmeo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Tests", "Carmeone.Tests\Carmeone.Tests.csproj", "{DD32BCC6-5F43-4152-A01C-0547E0C6E80A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Web.Site", "Carmeone.Web.Site\Carmeone.Web.Site.csproj", "{B566096D-C71F-48F1-8F4F-817F04E354DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carmeone.Api", "Carmeone.Api\Carmeone.Api.csproj", "{89E73152-D22E-4045-B9AE-C9452503F000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +26,9 @@ Global
 		{DD32BCC6-5F43-4152-A01C-0547E0C6E80A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD32BCC6-5F43-4152-A01C-0547E0C6E80A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD32BCC6-5F43-4152-A01C-0547E0C6E80A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B566096D-C71F-48F1-8F4F-817F04E354DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B566096D-C71F-48F1-8F4F-817F04E354DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B566096D-C71F-48F1-8F4F-817F04E354DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B566096D-C71F-48F1-8F4F-817F04E354DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E73152-D22E-4045-B9AE-C9452503F000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E73152-D22E-4045-B9AE-C9452503F000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E73152-D22E-4045-B9AE-C9452503F000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E73152-D22E-4045-B9AE-C9452503F000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
