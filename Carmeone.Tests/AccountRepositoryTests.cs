@@ -22,7 +22,7 @@ public class AccountRepositoryTests
         if (smtpSettings == null)
             throw new Exception("Can't get CSmtpSettings from user secrets");
 
-        _accountRepository = new AccountRepository(new CarmeoneContext(), smtpSettings);
+        _accountRepository = new AuthService(new CarmeoneContext(), smtpSettings);
     }
     
 

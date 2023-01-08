@@ -11,12 +11,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Carmeone.Services;
 
-public class AccountRepository : IAuthService
+public class AuthService : IAuthService
 {
     private readonly CarmeoneContext _context;
     private readonly SmtpSettings _smtpSettings;
 
-    public AccountRepository(CarmeoneContext context, SmtpSettings smtpSettings)
+    public AuthService(CarmeoneContext context, SmtpSettings smtpSettings)
     {
         _context = context;
         _smtpSettings = smtpSettings;

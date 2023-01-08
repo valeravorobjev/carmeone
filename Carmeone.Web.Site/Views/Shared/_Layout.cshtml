@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Carmeone</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-black text-decoration-none">
+            <img src="~/content/carmeone.svg" width="40" height="32" role="img" alt="Bootstrap"/>
+            <span class="ms-2">Carmeone</span>
+        </a>
+
+        <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li class="nav-item">
+                <a href="#" class="nav-link active px-2">Продают</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link px-2 link-dark">Покупают</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link px-2 link-dark">О платформе</a>
+            </li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+            <button type="button" class="btn btn-outline-primary me-2">Вход</button>
+            <button type="button" class="btn btn-primary">Регистрация</button>
+        </div>
+    </header>
+    @RenderBody()
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Carmeone - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
