@@ -7,7 +7,6 @@ public static class MotoFluent
 {
     public static ModelBuilder Moto(this ModelBuilder modelBuilder)
     {
-
         modelBuilder.Entity<Moto>(moto =>
         {
             moto.ToTable(t => { t.HasComment("Мотоцикл"); });
