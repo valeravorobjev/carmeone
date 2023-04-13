@@ -3,15 +3,15 @@ namespace Carmeone.Db.Entities;
 /// <summary>
 /// Пользователь - компания
 /// </summary>
-public class CompanyUser
+public class Company
 {
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public Guid CompanyUserId { get; set; }
+    public Guid CompanyId { get; set; }
     
     /// <summary>
-    /// Пользователь
+    /// Связь с таблицей аккаунта
     /// </summary>
-    public User? User { get; set; }
+    public Account Account { get; set; }
 }

@@ -1,4 +1,4 @@
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Common;
 
 /*
  * Данный файл содержит классы с исключениями

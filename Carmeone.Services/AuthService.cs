@@ -4,19 +4,19 @@ using System.Security.Cryptography;
 using System.Text;
 using Carmeone.Db;
 using Carmeone.Db.Entities;
-using Carmeone.Repositories.Common;
-using Carmeone.Repositories.Contracts;
-using Carmeone.Repositories.Models;
+using Carmeone.Services.Common;
+using Carmeone.Services.Contracts;
+using Carmeone.Services.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Carmeone.Repositories;
+namespace Carmeone.Services;
 
-public class AccountRepository : IAccountRepository
+public class AuthService : IAuthService
 {
-    private readonly CContext _context;
-    private readonly CSmtpSettings _smtpSettings;
+    private readonly CarmeoneContext _context;
+    private readonly SmtpSettings _smtpSettings;
 
-    public AccountRepository(CContext context, CSmtpSettings smtpSettings)
+    public AuthService(CarmeoneContext context, SmtpSettings smtpSettings)
     {
         _context = context;
         _smtpSettings = smtpSettings;
@@ -28,18 +28,18 @@ public class AccountRepository : IAccountRepository
             throw new Exception("SmtpSettings is null.");
     }
 
-    public async ValueTask<CResult<string>> RegistrationAsync(CRegistration registration)
+    public async ValueTask<CarmeoneResult<string>> RegAsync(Registration registration)
     {
-        CValidation validation = registration.Validate();
+        Validation validation = registration.Validate();
 
         if (!validation.IsValid)
-            return new CResult<string>
+            return new CarmeoneResult<string>
             {
                 Data = null,
-                StatusResult = new CStatusResult
+                StatusResult = new StatusResult
                 {
                     Message = validation.ToString(),
-                    Status = CCodes.ModelInvalid,
+                    StatusCode = StatusCode.ModelInvalid,
                     Validation = validation
                 }
             };
@@ -47,32 +47,24 @@ public class AccountRepository : IAccountRepository
         int countResult = await _context.Accounts!.CountAsync(a => a.Email == registration.Email);
 
         if (countResult > 0)
-            return new CResult<string>
+            return new CarmeoneResult<string>
             {
-                StatusResult = new CStatusResult
+                StatusResult = new StatusResult
                 {
-                    Status = CCodes.UserAllreadyExists,
+                    StatusCode = StatusCode.UserAllreadyExists,
                     Message = $"User with email {registration.Email} allready exists"
                 }
             };
 
         int salt = Random.Shared.Next(10000000, 99999999);
-        var passtring = registration.Password + salt;
 
-        var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes(passtring));
-        StringBuilder sbHash = new StringBuilder();
-        foreach (byte hashByte in hashBytes)
-        {
-            sbHash.Append(hashByte.ToString("x2"));
-        }
-
-        string hash = sbHash.ToString();
-        string activationCode = Guid.NewGuid().ToString();
+        string hash = Helpers.PassGen(registration.Password, salt);
+        Guid activationCode = Guid.NewGuid();
 
         Account account = new Account
         {
             AccountRole = registration.AccountRole,
-            RegistrationConfirmCode = activationCode,
+            ActivationCode = activationCode,
             Email = registration.Email,
             IsActive = false,
             Password = hash,
@@ -110,55 +102,54 @@ http://carmeone.ru/registration/confirm/{account.AccountId}/{activationCode}</p>
         }
         catch (Exception e)
         {
-            //TODO: Добавить запись в лог
-            return new CResult<string>
+            return new CarmeoneResult<string>
             {
-                StatusResult = new CStatusResult
+                StatusResult = new StatusResult
                 {
-                    Status = CCodes.InternalServerError,
+                    StatusCode = StatusCode.InternalError,
                     Message = "Internal server error."
                 }
             };
         }
 
-        return new CResult<string>
+        return new CarmeoneResult<string>
         {
             Data = account.AccountId.ToString(),
-            StatusResult = new CStatusResult
+            StatusResult = new StatusResult
             {
-                Status = CCodes.Ok
+                StatusCode = StatusCode.Ok
             }
         };
     }
 
-    public async ValueTask<CResult<bool>> ConfirmRegistrationAsync(CRegistrationConfirm registrationConfirm)
+    public async ValueTask<CarmeoneResult<bool>> RegConfirmAsync(RegistrationConfirm registrationConfirm)
     {
-        CValidation validation = registrationConfirm.Validate();
+        Validation validation = registrationConfirm.Validate();
 
         if (!validation.IsValid)
-            return new CResult<bool>
+            return new CarmeoneResult<bool>
             {
                 Data = false,
-                StatusResult = new CStatusResult
+                StatusResult = new StatusResult
                 {
                     Message = validation.ToString(),
-                    Status = CCodes.ModelInvalid,
+                    StatusCode = StatusCode.ModelInvalid,
                     Validation = validation
                 }
             };
 
         var account = await _context.Accounts!.FirstOrDefaultAsync(a =>
-            a.AccountId == new Guid(registrationConfirm.AccountId) &&
-            a.RegistrationConfirmCode == registrationConfirm.RegistrationConfirmCode);
+            a.AccountId == registrationConfirm.AccountId &&
+            a.ActivationCode == registrationConfirm.ActivationCode);
 
         if (account is null)
         {
-            return new CResult<bool>
+            return new CarmeoneResult<bool>
             {
                 Data = false,
-                StatusResult = new CStatusResult
+                StatusResult = new StatusResult
                 {
-                    Status = CCodes.NotFound,
+                    StatusCode = StatusCode.NotFound,
                     Message = $"Account with id {registrationConfirm.AccountId} doesn't exists"
                 }
             };
@@ -167,14 +158,51 @@ http://carmeone.ru/registration/confirm/{account.AccountId}/{activationCode}</p>
         account.IsActive = true;
         await _context.SaveChangesAsync();
         
-        return new CResult<bool>
+        return new CarmeoneResult<bool>
         {
             Data = true,
-            StatusResult = new CStatusResult
+            StatusResult = new StatusResult
             {
-                Status = CCodes.Ok
+                StatusCode = StatusCode.Ok
             }
         };
+    }
 
+    public async ValueTask<CarmeoneResult<bool>> LoginAsync(Login login)
+    {
+        var account = await _context.Accounts!.AsNoTracking().FirstOrDefaultAsync(a => a.Email == login.Email);
+
+        if (account == null)
+            return new CarmeoneResult<bool>
+            {
+                Data = false,
+                StatusResult = new StatusResult
+                {
+                    StatusCode = StatusCode.LoginOrPasswordIncorrect,
+                    Message = "Login or password is incorrect."
+                }
+            };
+
+        string password = Helpers.PassGen(login.Password, account.Salt);
+        
+        if (password != account.Password)
+            return new CarmeoneResult<bool>
+            {
+                Data = false,
+                StatusResult = new StatusResult
+                {
+                    StatusCode = StatusCode.LoginOrPasswordIncorrect,
+                    Message = "Login or password is incorrect."
+                }
+            };
+
+        return new CarmeoneResult<bool>
+        {
+            Data = true,
+            StatusResult = new StatusResult
+            {
+                StatusCode = StatusCode.Ok
+            }
+        };
     }
 }

@@ -40,10 +40,20 @@ public class Account
     /// <summary>
     /// Код активации. Отправляется по email для подтверждения регистрации.
     /// </summary>
-    public string RegistrationConfirmCode { get; set; } = null!;
+    public Guid ActivationCode { get; set; }
+    
+    /// <summary>
+    /// Дата регистрации
+    /// </summary>
+    public DateTime RegistrationDate { get; set; }
 
     /// <summary>
     /// Связь с таблицей User
     /// </summary>
-    public User User { get; set; } = null!;
+    public User? User { get; set; }
+    
+    /// <summary>
+    /// Связь с таблицей компании
+    /// </summary>
+    public Company? Company { get; set; }
 }

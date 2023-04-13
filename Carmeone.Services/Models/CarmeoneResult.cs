@@ -1,15 +1,15 @@
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Models;
 
 /// <summary>
 /// Результат. Ответ от сервиса, метода.
 /// </summary>
 /// <typeparam name="T">Тип результата</typeparam>
-public class CResult<T>
+public class CarmeoneResult<T>
 {
     /// <summary>
     /// Статус результата
     /// </summary>
-    public CStatusResult StatusResult { get; set; } = null!;
+    public StatusResult StatusResult { get; set; } = null!;
 
     /// <summary>
     /// Данные

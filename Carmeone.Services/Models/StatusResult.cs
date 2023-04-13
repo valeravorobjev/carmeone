@@ -1,27 +1,22 @@
-using System.Text.Json.Serialization;
-
-namespace Carmeone.Repositories.Models;
+namespace Carmeone.Services.Models;
 
 /// <summary>
 /// Статус результата
 /// </summary>
-public class CStatusResult
+public class StatusResult
 {
     /// <summary>
     /// Статус (строковой код)
     /// </summary>
-    [JsonPropertyName("status")]
-    public string Status { get; set; } = null!;
+    public StatusCode StatusCode { get; set; }
 
     /// <summary>
     /// Сообщение. Текстовое описание.
     /// </summary>
-    [JsonPropertyName("message")]
     public string? Message { get; set; }
     
     /// <summary>
     /// Параметры валидации
     /// </summary>
-    [JsonPropertyName("validation")]
-    public CValidation? Validation { get; set; }
+    public Validation? Validation { get; set; }
 }

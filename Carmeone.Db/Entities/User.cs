@@ -13,46 +13,60 @@ public class User
     /// <summary>
     /// Аватар (картинка)
     /// </summary>
-    public string Avatar { get; set; } = null!;
+    public string? Avatar { get; set; }
 
     /// <summary>
     /// Телефон
     /// </summary>
-    public string Phone { get; set; } = null!;
+    public string? Phone { get; set; }
+
+    /// <summary>
+    /// Город
+    /// </summary>
+    public string? Sity { get; set; }
 
     /// <summary>
     /// Адрес
     /// </summary>
-    public string Address { get; set; } = null!;
+    public string? Address { get; set; }
+    
+    /// <summary>
+    /// Фамилия
+    /// </summary>
+    public string? FirstName { get; set; }
+
+    /// <summary>
+    /// Имя
+    /// </summary>
+    public string? LastName { get; set; }
+
+    /// <summary>
+    /// Отчество
+    /// </summary>
+    public string? MiddleName { get; set; }
+
+    /// <summary>
+    /// Дата рождения
+    /// </summary>
+    public DateTime? DateBirth { get; set; }
 
     /// <summary>
     /// Описание
     /// </summary>
-    public string Description { get; set; } = null!;
+    public string? Description { get; set; }
 
     /// <summary>
-    /// Дата регистрации
+    /// Связь с таблицей аккаунта
     /// </summary>
-    public DateTime RegistrationDate { get; set; }
+    public Account Account { get; set; } = null!;
 
-    /// <summary>
-    /// Связь с таблицей пользователя-компании
-    /// </summary>
-    public CompanyUser? CompanyUser { get; set; }
-    
-    /// <summary>
-    /// Связь с таблицей обычного пользователя
-    /// </summary>
-    public IndividualUser? IndividualUser { get; set; }
-    
-    public Account Account { get; set; }
-    
     /// <summary>
     /// Связь многие ко многим с таблицей публикаций
     /// </summary>
-    public ICollection<Publication> Publications { get; set; }
+    public ICollection<Publication>? Publications { get; set; }
+
     /// <summary>
     /// Связь многие ко многим с таблицей публикаций
     /// </summary>
-    public ICollection<UserPublication> UserPublications { get; set; }
+    public ICollection<UserPublication>? UserPublications { get; set; }
 }
