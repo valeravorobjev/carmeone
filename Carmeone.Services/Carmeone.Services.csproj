@@ -14,8 +14,4 @@
       <PackageReference Include="EmailValidation" Version="1.0.8" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Contents" />
-    </ItemGroup>
-
 </Project>
