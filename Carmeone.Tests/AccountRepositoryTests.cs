@@ -9,7 +9,7 @@ namespace Carmeone.Tests;
 
 public class AccountRepositoryTests
 {
-    private readonly IAuthService _accountRepository;
+    private readonly IAuthService _authService;
 
     public AccountRepositoryTests()
     {
@@ -22,7 +22,7 @@ public class AccountRepositoryTests
         if (smtpSettings == null)
             throw new Exception("Can't get CSmtpSettings from user secrets");
 
-        _accountRepository = new AuthService(new CarmeoneContext(), smtpSettings);
+        _authService = new AuthService(new CarmeoneContext(), smtpSettings);
     }
     
 
@@ -36,7 +36,7 @@ public class AccountRepositoryTests
             Password = "12345",
             ConfirmPassword = "12345"
         };
-        CarmeoneResult<string> result = await _accountRepository.RegAsync(registration);
+        CarmeoneResult<string> result = await _authService.RegAsync(registration);
         
         Assert.NotNull(result);
         Assert.NotNull(result.StatusResult);
