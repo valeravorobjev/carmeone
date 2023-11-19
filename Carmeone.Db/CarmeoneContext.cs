@@ -20,7 +20,7 @@ public class CarmeoneContext : DbContext
     {
         //TODO: Удалить строку соединения с БД
         optionsBuilder
-            .UseNpgsql("Host=localhost;Database=carmeone;Username=valera;Password=password")
+            .UseNpgsql("Host=localhost;Database=carmeone;Username=valera;Password=P@ssw0rd")
             .UseSnakeCaseNamingConvention();
     }
 
@@ -32,6 +32,8 @@ public class CarmeoneContext : DbContext
             .Account()
             .User()
             .Company()
+            .Brand()
+            .BrandModel()
             .Vehicle()
             .Car()
             .Bus()

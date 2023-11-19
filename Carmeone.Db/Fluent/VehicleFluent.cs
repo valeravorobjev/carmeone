@@ -12,6 +12,12 @@ public static class VehicleFluent
             vehicle.ToTable(t => { t.HasComment("Транспортные средства"); });
 
             vehicle
+                .HasOne(p => p.BrandModel)
+                .WithMany(p => p.Vehicles)
+                .HasForeignKey(p => p.BrandModelId)
+                .IsRequired();
+
+            vehicle
                 .HasOne(p => p.Car)
                 .WithOne(p => p.Vehicle)
                 .HasForeignKey<Car>(p => p.CarId);

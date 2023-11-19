@@ -11,6 +11,11 @@ public class Vehicle
     /// Идентификатор
     /// </summary>
     public Guid VehicleId { get; set; }
+    
+    /// <summary>
+    /// Идентификатор модели транспортного средства
+    /// </summary>
+    public Guid BrandModelId { get; set; }
 
     /// <summary>
     /// Тип транспортного средства
@@ -106,6 +111,11 @@ public class Vehicle
     /// Эфективность выбросов СО
     /// </summary>
     public EfficiencyClassType EfficiencyClass { get; set; }
+    
+    /// <summary>
+    /// Модель бренда (конкретная модель автомобиля)
+    /// </summary>
+    public BrandModel BrandModel { get; set; }
 
     /// <summary>
     /// Связь с таблицей автомобилей

@@ -8,7 +8,7 @@ public class Brand
     /// <summary>
     /// Идентификатор
     /// </summary>
-    public uint BrandId { get; set; }
+    public Guid BrandId { get; set; }
 
     /// <summary>
     /// Название
@@ -28,5 +28,5 @@ public class Brand
     /// <summary>
     /// Связь с таблицей BrandModel
     /// </summary>
-    public BrandModel BrandModel { get; set; }
+    public ICollection<BrandModel> BrandModels { get; set; }
 }
